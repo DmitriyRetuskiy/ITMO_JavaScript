@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>window</title>
+</head>
+<body onload="f_Load()">
+<h1>Редирект через 5 сек</h1>
+<hr>
+
+<script language="JavaScript" type="text/JavaScript">
+
+ 
+function f_Load()
+{ 
+ setTimeout( f_Redirect , 5000);
+ function f_Redirect()
+ {
+  window.location.replace("http://www.yandex.ru");
+//window.location.href = "http://www.yandex.ru";
+ }
+}
+</script>
+</body>
+</html>

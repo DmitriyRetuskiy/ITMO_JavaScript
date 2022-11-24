@@ -1,0 +1,164 @@
+<html>
+
+<body>
+<style>
+table{
+ border:1px solid black;
+}
+td{
+ border:1px solid black;
+}
+tr{
+ border:1px solid black;
+}
+</style>
+
+<script type="text/javascript">
+//---------------- Рисуем таблицу на 12 ячеек ------------------- 
+var
+  k=0;
+var
+ dblMilsec = performance.now();
+
+document.write("<h4> Вывод таблицы циклом For </h4>");
+document.write("<table>");
+for(var i=0;i<6;i++)
+{
+ document.write("<tr>");
+ for(var j=0;j<2;j++)
+ {
+  document.write("<td>"); //+ (j+i*2) + "</td>");
+  if(! (k & 1) )  // если любое число побитово сравнить  с единицей
+  {
+   document.write("2" + "<sup>" + k/2 + "</sup>");
+  }
+  else
+  {
+   document.write(Math.pow(2, parseInt(k/2))); // Приведением
+  }
+  k++;
+  document.write("</td>");
+ }
+ document.write("</tr>");
+}
+document.write("</table>");
+  
+dblMilsec =  performance.now() - dblMilsec;  
+document.write("<p>Таблица с For и была выполнена за:" + dblMilsec +  " </p>");  
+
+
+//---------------- While и побитовые операции -------------------
+document.write("<h4> Вывод таблицы циклом While </h4>");
+
+dblMilsec =  performance.now();           // метка милисекунд
+document.write("<table>");
+i = 0;
+while(i < 12)
+{
+ if((i^0)== 0)                            // если 1 строка открываем tr
+ {
+  document.write("<tr>");
+ } 
+ else                                     // иначе
+ {
+  if((i^12) == 0)                         // если последняя строка зкрываем tr
+  {
+   document.write("</tr>");
+  } 
+  else                                    // иначе       
+  {
+   if( ((i % 2)^0) == 0) {document.write("</tr><tr>");} // если делется на 2
+  }
+ }
+ 
+ document.write("<td>");  // Открываем ячейку
+ // проверяем что  в ячейке
+ if(i % 2 == 0) 
+  {
+   document.write("2" + "<sup>" + i/2 + "</sup>");
+  }
+  else
+  {
+   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+  }
+ 
+  document.write("</td>"); // закрываем ячейку
+  i++;
+
+}
+  document.write("</table>");
+
+dblMilsec =  performance.now() - dblMilsec; 
+document.write("<p>Таблица с While и была выполнена за:" + dblMilsec +  " </p>");   
+ 
+// ---------------Применение рекурсии процедура ----------------------------------
+document.write("<h4> Вывод таблицу Рекурсией </h4>");
+
+dblMilsec =  performance.now(); 
+i = 0; 
+function p_Table()
+{
+
+ if(i < 11)                                             // если i < 11
+ {
+  if((i^0)== 0)                                         // сравниваем с нулем
+  {
+   document.write("<table><tr>");
+  }
+  else
+  {
+   if(((i % 2)^0) == 0) { document.write("</tr><tr>");}  // каждую 2-ю ячейку
+  }
+  //document.write("<td> " + i + "  </td>");
+    document.write("<td>");  // Открываем ячейку
+ // проверяем что  в ячейке
+  if(i % 2 == 0) 
+  {
+   document.write("2" + "<sup>" + i/2 + "</sup>");
+  }
+  else
+  {
+   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+  }
+ 
+  document.write("</td>"); // закрываем ячейку
+  
+  
+  
+  i++;
+  p_Table();
+ }
+ if((i^11) == 0)                                        // последняя ячейка
+ {
+   //document.write("<td> " + i + "  </td>");
+   
+ document.write("<td>");  // Открываем ячейку
+ // проверяем что  в ячейке
+ if(i % 2 == 0) 
+  {
+   document.write("2" + "<sup>" + i/2 + "</sup>");
+  }
+  else
+  {
+   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+  }
+ 
+  document.write("</td>"); // закрываем ячейку
+   
+   document.write("</tr></table>");
+   i++;
+ }
+ 
+ // выходим из функции
+} 
+p_Table();                                                 // рисуем таблицу
+
+dblMilsec =  performance.now() - dblMilsec; 
+document.write("<br> <p>Таблица с Рекурсией p_Table() и была выполнена за:" + dblMilsec +  " </p>");
+//----------------Применим тернарный оператор ---------------------------------
+
+ 
+ </script>
+</body>
+
+</html>

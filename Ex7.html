@@ -1,0 +1,29 @@
+<html>
+<head>
+
+<script language="JavaScript">
+
+function f_Load()
+{
+ study=new Array("математика","физика","химия","литература","музыка","изо");
+ 
+ exact=new Array();     //точные науки
+ exact=study.slice(0,3);
+ 
+ inexact=new Array();     //точные науки
+ inexact=study.slice(3,6);  // (?)????????????? почему не 5 элемент
+ 
+ document.write("Точыне науки <br /> " );
+ document.write(exact+"<br>");
+ 
+  document.write("Гуманитарные науки <br /> " );
+ document.write(inexact+"<br>");
+} 
+</script>
+
+<title>array</title>
+</head>
+<body onload="f_Load()">
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<head> 
+<title>anima1</title> 
+<script language="JavaScript"> 
+var 
+ intPosTextLeft = parseInt(document.documentElement.clientWidth) - 150;
+
+function f_moveTxt() 
+{ 
+var 
+ intPosTextTop  = parseInt(anim.style.top);
+
+if (intPosTextTop <500) 
+{ 
+  intPosTextTop   += 2;
+  intPosTextLeft  -= 2;
+  anim.style.top  = intPosTextTop; 
+  anim.style.left = intPosTextLeft;
+  setTimeout("f_moveTxt()", 50); 
+} 
+
+}
+ 
+</script> 
+</head> 
+<body onLoad="f_moveTxt()"> 
+<div id="anim" style="position:absolute; left:10; top:10"> 
+Текст, шагом марш! 
+</div> 
+</body> 
+</html>

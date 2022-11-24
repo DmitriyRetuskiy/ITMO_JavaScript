@@ -1,0 +1,83 @@
+<html>
+
+<script type="text/javascript">
+var
+ intLoads=0;
+
+function f_Send()
+{
+ 
+ 
+ 
+ if(idName.value=='')
+ {
+  alert('Пусто поле Имя');
+  idName.focus();
+  return false;
+ }
+ else if(idPass.value.length < 4)
+ {
+   alert('Пароль < 4');
+   idPass.focus();
+   return false;
+ }
+ else if(idPass.value != idConfirm.value)
+ {
+  alert('Пароль и подтверждение не совпадают');
+  idConfirm.focus();
+  return false;
+ }
+ else if(!idMail.value.includes('@'))
+ {
+  alert('Почта не кооректна');
+  idMail.focus();
+  return false;
+ }
+ else if(idThema.value == '')
+ {
+  alert('Заполнить тему');
+  idThema.focus();
+  return false;
+ }
+ else if(idComment.value.length < 10)
+ {
+  alert('Текст меньше 10');
+  idComment.focus();
+  return false;
+ }
+ 
+ alert('Успешно отправлено');
+ FrmType.submit();
+ 
+ //f_go(go);
+ //return ;
+ 
+}
+
+
+
+function f_Load()
+{
+ intLoads++;
+ //alert(intLoads);
+ //idPass.focus();
+}
+</script>
+
+ <body onload="f_Load()">
+  <form id="FrmType" method="POST" > <!-- name='FrmType' return false; -->
+   Введите имя: *<input type="text" id="idName" value='' /> <br /> <br />
+        Пароль: *<input type="password" id="idPass" value='' /> <br /> <br />
+   Подтверждение пароля: *<input type="password" id="idConfirm" value='' /> <br /> <br />
+   Электронный адрес: *<input type="text" id="idMail" value='' /> <br /> <br />
+   Тема сообщения <input type="text" id="idThema" value='' /> <br /> <br />
+   Сообщение  <textarea name="comments" cols="35" rows="4" id="idComment"></textarea> <br /> <br />
+   <input type="button" onclick="f_Send(); " value='Send' /> 
+   <input type="button" onclick="this.form.reset()"  value='Clear' />
+    <!-- Отправить </button> <button> Очистить </button> -->
+  </form>
+   
+    <p id="idP"> </p>
+  
+ </body>
+</html>

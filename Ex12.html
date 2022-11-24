@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>window</title>
+</head>
+<body onload="f_Load()">
+<h1>PDF и Color </h1>
+
+<hr>
+<a href="javascript:f_OpenPDF()"> Открыть PDF </a>
+<hr>
+<a href="#" onmouseover="f_ChageColor(1)" onmouseout="f_ChageColor()"> Цвет фона </a>
+
+<script language="JavaScript" type="text/JavaScript">
+
+
+function f_ChageColor(type)
+{
+ if(type) document.body.style.background="green";
+  else document.body.style.background="white";
+} 
+
+function f_OpenPDF()
+{
+ var
+  blOpen = confirm("Вам нужен PDF reader");
+ if(blOpen) 
+ {
+  window.open('file.pdf');
+ }
+ else return;
+}
+
+
+</script>
+</body>
+</html>

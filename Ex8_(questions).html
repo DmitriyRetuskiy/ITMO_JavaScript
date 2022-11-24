@@ -1,0 +1,42 @@
+<html>
+<head>
+<title> navigator </title>
+<script language="javascript">
+
+/* 
+ На всех браузерах выводит Chrome?
+*/ 
+
+
+function f_getBrowserId () {
+var
+ aKeys = ["MSIE", "Firefox", "Safari", "Opera",  "Chrome"],
+ sUsrAg = navigator.userAgent, 
+ nIdx = aKeys.length - 1;
+for (nIdx; nIdx > -1 && sUsrAg.indexOf(aKeys[nIdx]) === -1; nIdx--);
+return nIdx
+}
+
+function welcome(){ 
+
+var browser = f_getBrowserId(); 
+  if(browser == 3) alert("Ваш браузер Opera установите Chrome и повторите попытку");
+  if(browser == 2) alert("Ваш браузер Safari установите Chrome и повторите попытку");
+  if(browser == 1) alert("Ваш браузер Firefox установите Chrome и повторите попытку");
+  if(browser < 1)  alert("Ваш браузер MSIE установите Chrome и повторите попытку"); 
+  if(browser == 4) // Браузер Chrome работаем
+  {
+   alert('Chrome го');// генерируем события переключения выпадающего списка
+   window.location.href = 'Ex1.html';
+  }
+
+}
+
+
+</script>
+
+<body onload="welcome()">
+
+</body>
+
+</head>

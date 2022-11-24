@@ -1,0 +1,30 @@
+<html> 
+<head> 
+<title>text decoration</title> 
+<script language="JavaScript"> 
+function addunderline() 
+{ 
+ head.style.textDecoration = "underline"; 
+} 
+function removeunderline() 
+{ 
+ head.style.textDecoration = "none"; 
+} 
+function lineThrough() 
+{ 
+ head.style.textDecoration = "line-through"; 
+} 
+function upline() 
+{ 
+ head.style.textDecoration = "overline"; 
+} 
+
+</script> 
+</head> 
+<body> 
+<h1 id="head" onMouseover="addunderline()" onMouseout="removeunderline()" 
+onclick="upline()" ondblclick="lineThrough()">
+Добро пожаловать на нашу страницу! 
+</h1> 
+</body> 
+</html>
