@@ -14,13 +14,13 @@ tr{
 </style>
 
 <script type="text/javascript">
-//---------------- Рисуем таблицу на 12 ячеек ------------------- 
+//---------------- Р РёСЃСѓРµРј С‚Р°Р±Р»РёС†Сѓ РЅР° 12 СЏС‡РµРµРє ------------------- 
 var
   k=0;
 var
  dblMilsec = performance.now();
 
-document.write("<h4> Вывод таблицы циклом For </h4>");
+document.write("<h4> В¬С‹РІРѕРґ С‚Р°Р±Р»РёС†С‹ С†РёРєР»РѕРј For </h4>");
 document.write("<table>");
 for(var i=0;i<6;i++)
 {
@@ -28,13 +28,13 @@ for(var i=0;i<6;i++)
  for(var j=0;j<2;j++)
  {
   document.write("<td>"); //+ (j+i*2) + "</td>");
-  if(! (k & 1) )  // если любое число побитово сравнить  с единицей
+  if(! (k & 1) )  // РµСЃР»Рё Р»СЋР±РѕРµ С‡РёСЃР»Рѕ РїРѕР±РёС‚РѕРІРѕ СЃСЂР°РІРЅРёС‚СЊ  СЃ РµРґРёРЅРёС†РµР№
   {
    document.write("2" + "<sup>" + k/2 + "</sup>");
   }
   else
   {
-   document.write(Math.pow(2, parseInt(k/2))); // Приведением
+   document.write(Math.pow(2, parseInt(k/2))); // СЃ РїСЂРёРІРµРґРµРЅРёРµРј
   }
   k++;
   document.write("</td>");
@@ -44,118 +44,118 @@ for(var i=0;i<6;i++)
 document.write("</table>");
   
 dblMilsec =  performance.now() - dblMilsec;  
-document.write("<p>Таблица с For и была выполнена за:" + dblMilsec +  " </p>");  
+document.write("<p>вЂњР°Р±Р»РёС†Р° СЃ For Рё Р±С‹Р»Р° РІС‹РїРѕР»РЅРµРЅР° Р·Р°:" + dblMilsec +  " </p>");  
 
 
-//---------------- While и побитовые операции -------------------
-document.write("<h4> Вывод таблицы циклом While </h4>");
+//---------------- While Рё РїРѕР±РёС‚РѕРІС‹Рµ РѕРїРµСЂР°С†РёРё -------------------
+document.write("<h4> В¬С‹РІРѕРґ С‚Р°Р±Р»РёС†С‹ С†РёРєР»РѕРј While </h4>");
 
-dblMilsec =  performance.now();           // метка милисекунд
+dblMilsec =  performance.now();           // РјРµС‚РєР° РјРёР»РёСЃРµРєСѓРЅРґ
 document.write("<table>");
 i = 0;
 while(i < 12)
 {
- if((i^0)== 0)                            // если 1 строка открываем tr
+ if((i^0)== 0)                            // РµСЃР»Рё 1 СЃС‚СЂРѕРєР° РѕС‚РєСЂС‹РІР°РµРј tr
  {
   document.write("<tr>");
  } 
- else                                     // иначе
+ else                                     // РёРЅР°С‡Рµ
  {
-  if((i^12) == 0)                         // если последняя строка зкрываем tr
+  if((i^12) == 0)                         // РµСЃР»Рё РїРѕСЃР»РµРґРЅСЏСЏ СЃС‚СЂРѕРєР° Р·РєСЂС‹РІР°РµРј tr
   {
    document.write("</tr>");
   } 
-  else                                    // иначе       
+  else                                    // РёРЅР°С‡Рµ       
   {
-   if( ((i % 2)^0) == 0) {document.write("</tr><tr>");} // если делется на 2
+   if( ((i % 2)^0) == 0) {document.write("</tr><tr>");} // РµСЃР»Рё РґРµР»РµС‚СЃСЏ РЅР° 2
   }
  }
  
- document.write("<td>");  // Открываем ячейку
- // проверяем что  в ячейке
+ document.write("<td>");  // РѕС‚РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
+ // РїСЂРѕРІРµСЂСЏРµРј С‡С‚Рѕ  РІ СЏС‡РµР№РєРµ
  if(i % 2 == 0) 
   {
    document.write("2" + "<sup>" + i/2 + "</sup>");
   }
   else
   {
-   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+   document.write(Math.pow(2, parseInt(i/2))); // РџСЂРёРІРµРґРµРЅРёРµРј
   }
  
-  document.write("</td>"); // закрываем ячейку
+  document.write("</td>"); // Р·Р°РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
   i++;
 
 }
   document.write("</table>");
 
 dblMilsec =  performance.now() - dblMilsec; 
-document.write("<p>Таблица с While и была выполнена за:" + dblMilsec +  " </p>");   
+document.write("<p>вЂњР°Р±Р»РёС†Р° СЃ While Рё Р±С‹Р»Р° РІС‹РїРѕР»РЅРµРЅР° Р·Р°:" + dblMilsec +  " </p>");   
  
-// ---------------Применение рекурсии процедура ----------------------------------
-document.write("<h4> Вывод таблицу Рекурсией </h4>");
+// ---------------РџСЂРёРјРµРЅРµРЅРёРµ СЂРµРєСѓСЂСЃРёРё РїСЂРѕС†РµРґСѓСЂР° ----------------------------------
+document.write("<h4> В¬С‹РІРѕРґ С‚Р°Р±Р»РёС†Сѓ вЂ“РµРєСѓСЂСЃРёРµР№ </h4>");
 
 dblMilsec =  performance.now(); 
 i = 0; 
 function p_Table()
 {
 
- if(i < 11)                                             // если i < 11
+ if(i < 11)                                             // РµСЃР»Рё i < 11
  {
-  if((i^0)== 0)                                         // сравниваем с нулем
+  if((i^0)== 0)                                         // СЃСЂР°РІРЅРёРІР°РµРј СЃ РЅСѓР»РµРј
   {
    document.write("<table><tr>");
   }
   else
   {
-   if(((i % 2)^0) == 0) { document.write("</tr><tr>");}  // каждую 2-ю ячейку
+   if(((i % 2)^0) == 0) { document.write("</tr><tr>");}  // РєР°Р¶РґСѓСЋ 2-СЋ СЏС‡РµР№РєСѓ
   }
   //document.write("<td> " + i + "  </td>");
-    document.write("<td>");  // Открываем ячейку
- // проверяем что  в ячейке
+    document.write("<td>");  // РѕС‚РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
+ // РїСЂРѕРІРµСЂСЏРµРј С‡С‚Рѕ  РІ СЏС‡РµР№РєРµ
   if(i % 2 == 0) 
   {
    document.write("2" + "<sup>" + i/2 + "</sup>");
   }
   else
   {
-   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+   document.write(Math.pow(2, parseInt(i/2))); // С•СЂРёРІРµРґРµРЅРёРµРј
   }
  
-  document.write("</td>"); // закрываем ячейку
+  document.write("</td>"); // Р·Р°РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
   
   
   
   i++;
   p_Table();
  }
- if((i^11) == 0)                                        // последняя ячейка
+ if((i^11) == 0)                                        // РїРѕСЃР»РµРґРЅСЏСЏ СЏС‡РµР№РєР°
  {
    //document.write("<td> " + i + "  </td>");
    
- document.write("<td>");  // Открываем ячейку
- // проверяем что  в ячейке
+ document.write("<td>");  // РѕС‚РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
+ // РїСЂРѕРІРµСЂСЏРµРј С‡С‚Рѕ  РІ СЏС‡РµР№РєРµ
  if(i % 2 == 0) 
   {
    document.write("2" + "<sup>" + i/2 + "</sup>");
   }
   else
   {
-   document.write(Math.pow(2, parseInt(i/2))); // Приведением
+   document.write(Math.pow(2, parseInt(i/2))); // С•СЂРёРІРµРґРµРЅРёРµРј
   }
  
-  document.write("</td>"); // закрываем ячейку
+  document.write("</td>"); // Р·Р°РєСЂС‹РІР°РµРј СЏС‡РµР№РєСѓ
    
    document.write("</tr></table>");
    i++;
  }
  
- // выходим из функции
+ // РІС‹С…РѕРґРёРј РёР· С„СѓРЅРєС†РёРё
 } 
-p_Table();                                                 // рисуем таблицу
+p_Table();                                                 // СЂРёСЃСѓРµРј С‚Р°Р±Р»РёС†Сѓ
 
 dblMilsec =  performance.now() - dblMilsec; 
-document.write("<br> <p>Таблица с Рекурсией p_Table() и была выполнена за:" + dblMilsec +  " </p>");
-//----------------Применим тернарный оператор ---------------------------------
+document.write("<br> <p>вЂњР°Р±Р»РёС†Р° СЃ вЂ“РµРєСѓСЂСЃРёРµР№ p_Table() Рё Р±С‹Р»Р° РІС‹РїРѕР»РЅРµРЅР° Р·Р°:" + dblMilsec +  " </p>");
+
 
  
  </script>
