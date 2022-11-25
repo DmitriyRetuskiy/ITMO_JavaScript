@@ -1,0 +1,45 @@
+<html>
+
+<script>
+
+(function (){
+
+var Line = function(width, height, position, top, left, background)
+//
+{
+ this.width      = width;      // ширина
+ this.height     = height;     // высота
+ this.position   = position;   // ориентирование
+ this.top        = top;        // от верха
+ this.left       = left;       // слева
+ this.background = background; // заливка
+
+ Line.prototype.mtDrow = function () // для экономии памяти
+ {
+  document.write("<hr  style='width:"  + width + 
+                          "; height:" + height +
+						  "; position:" + position +
+						  "; top:" + top +
+						  "; left:" + left +
+						  "; background:" + background + ";'  /> ");				
+ }  
+} 
+ 
+var objLine = new Line(300,10,"absolute",0,50, "green"); 
+
+for(let i=0;i<14;i++)
+{
+ Line( 10 + i*20,6,"absolute",100 + i*10,200 - i*10, "green"); //100/2
+ objLine.mtDrow();
+}
+
+})();
+ 
+ 
+</script>
+
+<body>
+ <p id="idP">Пирамида </p> 
+
+<body>
+</html>
