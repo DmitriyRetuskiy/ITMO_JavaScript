@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -6,108 +6,71 @@
 <link href="global.css" rel="stylesheet">
 </head>
 
+
 <script>
-
-
 
 function f_Submit()
 {
- var p = /^[a-z0-9_\.\-]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/i;
- var 
-   elName     = document.getElementById('name'),               // имя
-   elEmail    = document.getElementById('email'),              // email
-  //elSkill   = document.getElementById('skills'),             // скилл
-   elRefer    = document.getElementById('refer');              // refer
-   elComments = document.getElementById('comments');           // комментарий
+var 
+ p = /^[a-z0-9_\.\-]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/i;
+var 
+ blChecked  = false,                                         // выбран ли скилл
+ elName     = document.getElementById('name'),               // имя
+ elEmail    = document.getElementById('email'),              // email
+ elSkill    = document.getElementsByName('skill'),           // скилл
+ elRefer    = document.getElementById('refer'),              // refer
+ elComments = document.getElementById('comments');           // комментарий
 
- if(elName.value=='')
- {
-  alert('Пусто поле Имя');
-  elName.focus();
-  return false;
- }
- else if(elEmail.value=='')
- { 
-  alert('Заполните поле email');
-  elEmail.focus();
-  return false;
- }
- else if(!p.test(elEmail.value))
- {
-  alert('Некорректный email');
-  elEmail.focus()
- }
- else if(elRefer.selectedIndex == 0)
- {
-  alert('Некорректный select');
-  elRefer.focus();
- }
- else if(elComments.value.length < 10)
- {
-  alert('Комментарий меньше 10 символов');
-  elComments.focus();
-  return false;
- }
- /*
- else if(idPass.value.length < 4)
- {
-   alert('Пароль < 4');
-   idPass.focus();
-   return false;
- }
- else if(idPass.value != idConfirm.value)
- {
-  alert('Пароль и подтверждение не совпадают');
-  idConfirm.focus();
-  return false;
- }
- */
 
-//var Str = "unicross@mail.ru";
-// document.write("E-mail правильный");
+for (var i=0;i<elSkill.length; i++)
+{
+ if(elSkill[i].checked) blChecked = true; // что то выбрано
+}
+
+if(elName.value=='')
+{
+ alert('Пусто поле Имя');
+ elName.focus();
+ return false;
+}
+else if(elEmail.value=='')
+{ 
+ alert('Заполните поле email');
+ elEmail.focus();
+ return false;
+}
+else if(!p.test(elEmail.value))
+{
+ alert('Некорректный email');
+ elEmail.focus();
+ return false;
+}
+else if(!blChecked)
+{
+ alert('Выберети скилл')
+ return false; 
+}
+else if(elRefer.selectedIndex == 0)
+{
+ alert('Некорректный select');
+ elRefer.focus();
+ return false;
+}
+else if(elComments.value.length < 10)
+{
+ alert('Комментарий меньше 10 символов');
+ elComments.focus();
+ return false;
+}
+	
  
+ 
+//return true;         // работает      если input type="submit"
+subform.submit();      // надо вызывать если input type="button"
+alert('Успешно отправлено');
 }
 
 
-
-/* Отладить -------------
-let objForm = document.querySelector('.subform'); 
-objForm.addEventListener('submit', function(e) {
-
-alert('adsf');
-
-e.preventDefault(); // заблокировать отправку формы
-
-// Проверим поля
-
-//------------------
-
-
-//let objData = new FormData(objForm); 
-//alert(objData);
-
-//обработать в json 
-
-fetch('send.php', {
- method: 'POST',
- body  : formData
-})
-.then(response => response.json())
-.then(data => {
-//console.log(data);
- if(data.res){
-  form.innerHTML = "Your app is done! " + data.name;
- }
- else
- {
-  errorBox.innerHTML = data.error;
- }
-
-})
-
-
-});
-*/
 </script>
 
 <style>
@@ -164,7 +127,9 @@ fetch('send.php', {
 
 <body>
 <h1>Reader Subscription Form</h1>
-<form class="subform" id="subform" method="post">
+
+<!--- onsubmit="false" onsubmit="false" action="Itogovoe.php" -->
+<form class="subform" id="subform" onsubmit="return f_Submit();" method="POST" >
 	<p>
 		<label for="name" class="label">What is your name?</label>
 		<input type="text" name="name" id="name">
@@ -199,7 +164,7 @@ fetch('send.php', {
 		<textarea name="comments" cols="35" rows="4" id="comments"></textarea>
 	</p>
 	<p>
-		<input type="button" onclick="f_Submit()" value="Subscribe">
+		<input type="button" onclick="f_Submit()"  value="Subscribe"> <!-- -->
 	</p>
 </form>
 </body>
