@@ -26,8 +26,9 @@ function f_OpenPDF()
  if(blOpen) 
  {
   window.open('file.pdf');
+  return true;
  }
- else return;
+ else {return false;}
 }
 
 
