@@ -1,13 +1,14 @@
+<!DOCTYPE HTML>
 <html>
-
+<head>
+<meta charset="UTF-8">
+</head>
 <script type="text/javascript">
 var
  intLoads=0;
 
 function f_Send()
 {
- 
- 
  
  if(idName.value=='')
  {
@@ -48,30 +49,18 @@ function f_Send()
  
  alert('Успешно отправлено');
  FrmType.submit();
- 
- //f_go(go);
- //return ;
- 
 }
 
-
-
-function f_Load()
-{
- intLoads++;
- //alert(intLoads);
- //idPass.focus();
-}
 </script>
 
  <body onload="f_Load()">
   <form id="FrmType" method="POST" > <!-- name='FrmType' return false; -->
-   Введите имя: *<input type="text" id="idName" value='' /> <br /> <br />
-        Пароль: *<input type="password" id="idPass" value='' /> <br /> <br />
-   Подтверждение пароля: *<input type="password" id="idConfirm" value='' /> <br /> <br />
-   Электронный адрес: *<input type="text" id="idMail" value='' /> <br /> <br />
-   Тема сообщения <input type="text" id="idThema" value='' /> <br /> <br />
-   Сообщение  <textarea name="comments" cols="35" rows="4" id="idComment"></textarea> <br /> <br />
+   Введите имя: *<input type="text" id="idName" name="Name" value='' /> <br /> <br />
+        Пароль: *<input type="password" id="idPass" name="Pass" value='' /> <br /> <br />
+   Подтверждение пароля: *<input type="password" id="idConfirm" name="Confirm"    value='' /> <br /> <br />
+   Электронный адрес: *<input type="text" id="idMail" name="Mail" value='' /> <br /> <br />
+   Тема сообщения <input type="text" id="idThema" value='' name="Thema" /> <br /> <br />
+   Сообщение  <textarea name="comments" cols="35" rows="4" name="Comments" id="idComment"></textarea> <br /> <br />
    <input type="button" onclick="f_Send(); " value='Send' /> 
    <input type="button" onclick="this.form.reset()"  value='Clear' />
     <!-- Отправить </button> <button> Очистить </button> -->
